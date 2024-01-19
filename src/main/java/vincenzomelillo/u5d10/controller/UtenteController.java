@@ -49,32 +49,15 @@ public class UtenteController {
 
 
 
+
+
+
+
     @DeleteMapping("/{Id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void getUserByIdAndDelete(@PathVariable UUID id) {
-        UtenteService.rimuoviUtente(id);
+    public void getUserByIdAndDelete(@PathVariable UUID userId) {
+        utenteService.findByIdAndDelete(userId);
     }
-
-
-
-
-
-
-//    @PostMapping
-//    @ResponseStatus(HttpStatus.CREATED)
-//    public Utente createDevice(@RequestBody NewUtenteDTO body) {
-//        return utenteService.salvaUtente(body);
-//    }
-//
-//    @PutMapping("/{id}")
-//    @ResponseStatus(HttpStatus.OK)
-//    public Utente updateDevice(@PathVariable UUID id, @RequestBody Utente body) {
-//        return utenteService.findByIdAndUpdate(id, body);
-//    }
-
-
-
-
 
 
 

@@ -22,10 +22,10 @@ import java.util.UUID;
 public class UtenteService {
 
 	@Autowired
-	  public static UtenteDAO utenteRepo;
+	  public  UtenteDAO utenteRepo;
 
 	@Autowired
-	public static DispositivoDAO dispositivoRepo;
+	public  DispositivoDAO dispositivoRepo;
 
 
 	public Page<Utente> getUtente(int page, int size, String orderBy) {
@@ -49,22 +49,15 @@ public class UtenteService {
 	}
 
 
-
-
-
-
-
-
-	public static String rimuoviUtente(UUID id) {
-		if (!utenteRepo.existsById(id)) {
-			throw new EntityNotFoundException("L'UTENTE cercato è inesistente!");
-		}
-		if (!dispositivoRepo.findByUtente(utenteRepo.findById(id).get()).isEmpty()) {
-			throw new EntityExistsException("L'UTENTE non può essere eliminato dal DB in quanto ha un dispositivo assegnato!");
-		}
-		utenteRepo.deleteById(id);
-		return "UTENTE eliminato dal DB!";
+	public  void findByIdAndDelete(UUID id) {
+		Utente found = this.findById(id);
+		utenteRepo.delete(found);
 	}
+
+
+
+
+
 
 
 	public Utente findById(UUID id) {

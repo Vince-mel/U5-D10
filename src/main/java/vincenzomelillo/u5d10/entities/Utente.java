@@ -1,6 +1,8 @@
 package vincenzomelillo.u5d10.entities;
 
 import java.util.List;
+import java.util.UUID;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -23,8 +25,8 @@ import lombok.NoArgsConstructor;
 public class Utente {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	@GeneratedValue(strategy = GenerationType.UUID)
+	private UUID id;
 	
 	@Column(nullable = false, unique = true)
 	private String username;

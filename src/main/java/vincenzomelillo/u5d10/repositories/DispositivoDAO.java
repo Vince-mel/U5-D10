@@ -15,7 +15,9 @@ public interface DispositivoDAO
         extends JpaRepository<Dispositivo, Long>, PagingAndSortingRepository<Dispositivo, Long> {
 
     Page<Dispositivo> findByStatoDispositivo(StatoDispositivo statoDispositivo, Pageable pageable);
-    Page<Dispositivo> findByTipo(TipoDispositivo tipoDispositivo, Pageable pageable);
+
+    Page<Dispositivo> findByTipoDispositivo(TipoDispositivo tipoDispositivo, Pageable pageable);
+
     List<Dispositivo> findByUtente(Utente utente);
 
 }
